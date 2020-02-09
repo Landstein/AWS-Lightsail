@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Installing Python3.7" 
 sudo apt update
 sudo apt install software-properities-common
