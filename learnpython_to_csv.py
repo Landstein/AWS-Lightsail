@@ -39,7 +39,7 @@ def scrape_submissions_1000(reddit):
 
 def new_submissions(df):
     # pulls full csv
-    df_current = pd.read_csv('learnpython_submissions.csv', index_col=0)
+    df_current = pd.read_csv('/home/ubuntu/AWS-Lightsail/learnpython_submissions.csv', index_col=0)
 
     # Checks for only the new rows in the df
     new_submission = df[~df['id'].isin(df_current['id'])]
@@ -47,7 +47,7 @@ def new_submissions(df):
     # Appends the new submissions to the current pandas df which was read from the learnpython_submissions.csv
     df_current = df_current.append(new_submission, sort=False)
     # saves new version of the csv
-    df_current.to_csv('learnpython_submissions.csv')
+    df_current.to_csv('/home/ubuntu/AWS-Lightsail/learnpython_submissions.csv')
 
     return new_sub_list, new_submission, df_current
 
