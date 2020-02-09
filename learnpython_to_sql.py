@@ -2,12 +2,10 @@ import praw
 import pandas as pd
 import config
 import time
-
 #SQL
-import mysql.connector
 from sqlalchemy import create_engine
 
-
+#connects to reddit praw object using my reddit application api client id and client secret
 def reddit_object():
 
     reddit = praw.Reddit(client_id = config.client_id,
@@ -18,10 +16,15 @@ def reddit_object():
 
     return reddit
 
+#Calls up to the last 1000 submissions from learnpython
 def scrape_submissions_1000(reddit):
     sub_list = []
+    # selects the subreddit learnpython.  This can be changed to any subreddit
     subreddit = reddit.subreddit('learnpython')
+    # have it currently calling100 submissions at a time, but can be any number between 1 and 1000
     for submission in subreddit.new(limit=100):
+        # different submission attributes I choose to pull are below
+        # look at the praw documentation for other submission attributes
         author = str(submission.author)
         dates = time.strftime('%m/%d/%Y %H:%M:%S', time.localtime(submission.created_utc))
         permalink = submission.permalink
@@ -37,23 +40,23 @@ def scrape_submissions_1000(reddit):
 
 
 def new_submissions(df):
-    cnx = mysql.connector.connect(
-        host = config.host,
-        user = config.user,
-        password = config.passwd,
-        database = config.db_name
-    )
-    cur = cnx.cursor()
-    cur.execute("""SELECT * FROM Submissions.learnpython;""")
-    df_sql = pd.DataFrame(cur.fetchall())
-    df_sql.columns = [x[0] for x in cur.description]
+    # SQL connection
+    engine = create_engine("mysql+mysqlconnector://{user}:{pw}@{host}/{db}"
+                           .format(user=config.user,
+                                   pw=config.passwd,
+                                   host=config.host,
+                                   db=config.db_name))
+    # pulls full table from sql
+    df_sql = pd.read_sql_table("learnpython",
+                               con=engine)
+
+    df_sql.drop('index', axis=1, inplace=True)
+    # Checks for only the new rows in the df
     new_submission = df[~df['id'].isin(df_sql['id'])]
     new_sub_list = new_submission.values.tolist()
-    cur.close()
-    cnx.close()
     return new_sub_list, new_submission, df_sql
-#
-#
+
+
 def sql_submit(new_submission):
     engine = create_engine("mysql+mysqlconnector://{user}:{pw}@{host}/{db}"
                            .format(user=config.user,
@@ -74,6 +77,8 @@ def main():
 
 
 main()
+
+
 
 
 

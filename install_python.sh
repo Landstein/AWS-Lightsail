@@ -13,5 +13,5 @@ echo "---------------------"
 echo "Installing pip3"
 sudo apt update
 sudo apt install python3-pip
-pip3 –version 
+pip3 --version 
 echo "pip3 installed"
