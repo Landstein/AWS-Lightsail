@@ -1,5 +1,7 @@
 ## Hosting Config file in AWS S3
 
+Sticking with the AWS theme I have decided to use S3 to transfer the file.  Though there are many alernatives. 
+
 1.) Select S3 from the AWS console
 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s31.png)
@@ -7,21 +9,20 @@
 2.) Create New Bucket
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s32.png)
 
-3.) Fill in name and hit next
+3.) Fill in name and select next
 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s34.png)
 
-4.) Upload the config file 
-Make sure to add your private keys to the config first 
+4.) Select the bucket
+
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s35.png)
 
-5.) Uncheck block public access 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s36.png)
 
-6.) confirm
+5.) Permissions > all uncheck block public access 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s37.png)
 
-7.) Actions > Make Public
+6.) save
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/s38.png)
 
 8.) 
