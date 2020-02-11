@@ -35,4 +35,40 @@ To begin you will need to sign up at [Amazon LightSail][1].  The first month is 
 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/instance_4.png)
 
-After selecting Create Instance you will be returned to the AWS LightSail dashboard.  It will take the Ubuntu instance a few minutes to be created.  While the instance is being created, its status will be “Pending” like in the screenshot below: 
+After selecting Create Instance you will be returned to the AWS LightSail dashboard.  It will take the Ubuntu instance a few minutes to be created.  While the instance is being created, its status will be “Pending” like in the screenshot below:
+
+![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/pending.png)
+
+The status will change to “Running” once the instance has been created.  You will also see the IP address assigned to the instance is 3.227.241.208.  This IP address is dynamic and will change every time you reboot the instance.  Depending on the project you plan on hosting it may be necessary to set a Static IP address.  
+
+![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/running.png)
+
+### Create a Static IP Address 
+
+Creating a static IP is optional and only necessary if your project requires it.  I will be creating the static IP address because I open my SQL server only to this IP address for security reasons.  Additionally, I prefer to SSH into the Ubuntu instance from my local machine and having a static IP makes this process easier.   
+
+1. Select the Networking tab in your Lightsail dashboard 
+2. Click on “Create static IP” 
+
+![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/ip_1.png)
+
+3. Select your Ubuntu Instance server under “Attach to an instance”
+4. Give the Static IP a name
+5. Click “Create”
+
+![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/ip_2.png)
+
+You will then see your new static IP Address.  This IP address will not change. 
+
+![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/ip_4.png)
+
+
+In this example my Static IP address is 18.213.119.58.  
+
+
+
+
+
+
+
+
