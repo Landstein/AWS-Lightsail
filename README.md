@@ -2,7 +2,8 @@
 AWS Lightsail Python Automation 
 
 Link to full wrtie up on [Medium][2]
-[2]:(https://towardsdatascience.com/automate-python-scripts-with-aws-lightsail-b8dfdd5b0a2f)
+
+[2]:https://towardsdatascience.com/automate-python-scripts-with-aws-lightsail-b8dfdd5b0a2f
 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/awslightsail.png)
 
