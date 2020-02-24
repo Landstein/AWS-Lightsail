@@ -3,6 +3,8 @@ AWS Lightsail Python Automation
 
 Link to full write up on [Medium][2]
 
+[![Installing Python3, PIP3 and automating your python script](https://youtu.be/_qXkwHamnyM)](https://youtu.be/_qXkwHamnyM)
+
 [2]:https://towardsdatascience.com/automate-python-scripts-with-aws-lightsail-b8dfdd5b0a2f
 
 ![](https://github.com/Landstein/AWS-Lightsail/blob/master/images/awslightsail.png)
